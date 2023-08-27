@@ -1,6 +1,8 @@
 const express = require("express");
-
-//Express it's a function that will add a lot of methodes to our app variable
+const config = require("./src/config/app");
+//To upload .env to process variables environment
+require("dotenv").config();
+//Express it's a function that will add a lot of methods to our app variable
 const app = express();
 app.use(express.json());
 
@@ -103,7 +105,7 @@ app.get("/api/v1/libraries/:id/books/:id", (req, res) => {
   });
 });
 //
-const port = 3000;
+const port = config.appPort || 3000;
 app.listen(port, () => {
   console.log(`Server running on port ${port} ...`);
 });
