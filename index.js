@@ -3,16 +3,24 @@ const app = require("./src/app.js");
 const config = require("./src/config/app");
 const dbConfig = require("./src/config/db");
 const pool = require("./src/config/pool");
+const port = config.appPort || 3000;
+pool
+  .connect({
+    host: dbConfig.dbHost,
+    port: dbConfig.dbPort,
+    database: dbConfig.dbDatabase,
+    user: dbConfig.dbUser,
+    password: "",
+  })
+  .then(() => {
+    app().listen(port, () => {
+      console.log(`Server running on port ${port} ...`);
+    });
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
-pool.connect({
-  host: dbConfig.dbHost,
-  port: dbConfig.dbPort,
-  database: dbConfig.dbDatabase,
-  user: dbConfig.dbUser,
-  password: "",
-});
-
-console.log(app);
 //To upload .env to process variables environment
 
 //Express it's a function that will add a lot of methods to our app variable
@@ -115,7 +123,3 @@ app.get("/api/v1/libraries/:id/books/:id", (req, res) => {
   });
 }); */
 //
-const port = config.appPort || 3000;
-app().listen(port, () => {
-  console.log(`Server running on port ${port} ...`);
-});

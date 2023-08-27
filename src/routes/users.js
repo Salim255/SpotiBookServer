@@ -1,38 +1,39 @@
 const express = require("express");
 const router = express.Router();
 
-router.post("/api/v1/users/signup", async (req, res) => {
+router.post("/signup", async (req, res) => {
+  console.log(req.body);
   res.status(200).json({
     status: "success",
     data: "data",
   });
 });
-router.post("/api/v1/users/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   res.status(200).json({
     status: "success",
     data: "data",
   });
 });
 //
-router.get("/api/v1/users", async (req, res) => {
+router.get("/", async (req, res) => {
   res.status(200).json({
     status: "success",
     data: "data",
   });
 });
-router.get("/api/v1/users:id", async (req, res) => {
+router.get("/users:id", async (req, res) => {
   res.status(200).json({
     status: "success",
     data: "data",
   });
 });
-router.patch("/api/v1/users:id", async (req, res) => {
+router.patch("/users:id", async (req, res) => {
   res.status(200).json({
     status: "success",
     data: "data",
   });
 });
-router.delete("/api/v1/users:id", async (req, res) => {
+router.delete("/users:id", async (req, res) => {
   res.status(200).json({
     status: "success",
     data: "data",
