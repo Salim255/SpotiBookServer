@@ -1,14 +1,24 @@
 const express = require("express");
+const app = require("./src/app.js");
 const config = require("./src/config/app");
+const dbConfig = require("./src/config/db");
+const pool = require("./src/config/pool");
+
+pool.connect({
+  host: dbConfig.dbHost,
+  port: dbConfig.dbPort,
+  database: dbConfig.dbDatabase,
+  user: dbConfig.dbUser,
+  password: "",
+});
+
+console.log(app);
 //To upload .env to process variables environment
-require("dotenv").config();
+
 //Express it's a function that will add a lot of methods to our app variable
-const app = express();
-app.use(express.json());
 
 //Route handlers
-
-app.post("/api/v1/users/signup", (req, res) => {
+/* app.post("/api/v1/users/signup", (req, res) => {
   res.status(200).json({
     status: "success",
     data: "data",
@@ -44,10 +54,10 @@ app.delete("/api/v1/users:id", (req, res) => {
     status: "success",
     data: "data",
   });
-});
+}); */
 //
 
-app.get("/api/v1/libraries", (req, res) => {
+/* app.get("/api/v1/libraries", (req, res) => {
   res.status(200).json({
     status: "success",
     data: "data",
@@ -83,10 +93,10 @@ app.delete("/api/v1/libraries/:id", (req, res) => {
     status: "success",
     data: "data",
   });
-});
+}); */
 
 //
-app.put("/api/v1/libraries/:id/books/:id", (req, res) => {
+/* app.put("/api/v1/libraries/:id/books/:id", (req, res) => {
   res.status(200).json({
     status: "success",
     data: "data",
@@ -103,9 +113,9 @@ app.get("/api/v1/libraries/:id/books/:id", (req, res) => {
     status: "success",
     data: "data",
   });
-});
+}); */
 //
 const port = config.appPort || 3000;
-app.listen(port, () => {
+app().listen(port, () => {
   console.log(`Server running on port ${port} ...`);
 });
