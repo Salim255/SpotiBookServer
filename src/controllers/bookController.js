@@ -1,3 +1,18 @@
-export const getBookById = (req, res) => {};
-export const updateBookById = (req, res) => {};
-export const deleteBookById = (req, res) => {};
+exports.getBookById = (req, res) => {
+  res.status(200).json({
+    status: "success",
+    data: "data",
+  });
+};
+exports.updateBookById = (req, res) => {
+  res.status(200).json({
+    status: "success",
+    data: "data",
+  });
+};
+exports.deleteBookById = (req, res) => {
+  res.status(200).json({
+    status: "success",
+    data: "data",
+  });
+};

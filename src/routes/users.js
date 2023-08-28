@@ -1,43 +1,14 @@
 const express = require("express");
+const authController = require("../controllers/authController");
+const userController = require("../controllers/userController");
 const router = express.Router();
 
-router.post("/signup", async (req, res) => {
-  console.log(req.body);
-  res.status(200).json({
-    status: "success",
-    data: "data",
-  });
-});
-router.post("/login", async (req, res) => {
-  res.status(200).json({
-    status: "success",
-    data: "data",
-  });
-});
+router.post("/signup", authController.signUp);
+router.post("/login", authController.logIn);
 //
-router.get("/", async (req, res) => {
-  res.status(200).json({
-    status: "success",
-    data: "data",
-  });
-});
-router.get("/users:id", async (req, res) => {
-  res.status(200).json({
-    status: "success",
-    data: "data",
-  });
-});
-router.patch("/users:id", async (req, res) => {
-  res.status(200).json({
-    status: "success",
-    data: "data",
-  });
-});
-router.delete("/users:id", async (req, res) => {
-  res.status(200).json({
-    status: "success",
-    data: "data",
-  });
-});
+router.get("/", userController.getAllUsers);
+router.get("/:id", userController.getUserById);
+router.patch("/:id", userController.updateUserById);
+router.delete("/:id", userController.deleteUserById);
 
 module.exports = router;
