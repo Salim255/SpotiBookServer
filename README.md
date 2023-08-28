@@ -13,3 +13,5 @@
 ### 5/ npm run migrate create add users table
 
 #### 6/ DATABASE_URL=postgres://salimhassanmohamed@localhost:5432/spotiBook npm run migrate up
+
+#### 7/npm i bcryptjs

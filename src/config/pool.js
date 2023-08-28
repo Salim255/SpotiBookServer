@@ -2,8 +2,8 @@ const pg = require("pg");
 
 class Pool {
   _pool = null;
-  connect(connectionOptions) {
-    this._pool = new pg.Pool(connectionOptions);
+  connect(options) {
+    this._pool = new pg.Pool(options);
 
     return this._pool.query("SELECT 1 + 1;");
   }
@@ -13,7 +13,7 @@ class Pool {
   }
 
   //Really big security issue here!
-  query(sql) {
+  query(sql, params) {
     return this._pool.query(sql, params);
   }
 }
