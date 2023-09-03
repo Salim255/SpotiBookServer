@@ -15,3 +15,7 @@
 #### 6/ DATABASE_URL=postgres://salimhassanmohamed@localhost:5432/spotiBook npm run migrate up
 
 #### 7/npm i bcryptjs
+
+#### 8/npm install jsonwebtoken
+
+#### 9/ npm install nodemailer
